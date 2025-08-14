@@ -1,0 +1,8 @@
+# Set default behavior for all files
+* text=auto
+
+# Treat markdown files as text
+*.md text
+
+# Java files use LF endings
+*.java text eol=lf
