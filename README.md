@@ -3,7 +3,7 @@
 ## Overview
 This repository serves as the authoritative source for all infrastructure definitions supporting the `cloud-native-ai-commerce` platform. It implements GitOps principles to manage the complete deployment lifecycle through declarative configuration.
 
-## Value Proposition
+## 1️⃣ Value Proposition
 
 ### Single Source of Truth for:
 - **Cluster Infrastructure**: Base Kubernetes configurations
@@ -18,7 +18,7 @@ This repository serves as the authoritative source for all infrastructure defini
 
 ---
 
-## Repository Structure
+## 2️⃣ Repository Structure
 ```text
 infra/
 ├── .github/                  # CI/CD workflows
@@ -35,27 +35,36 @@ infra/
 ---
 
 ### 3️⃣ Enable Minikube Docker Environment
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   eval $(minikube docker-env)   `
-
+```bash
+   eval $(minikube docker-env)   
+```
+---
 ### 4️⃣ Build All Service Images Locally
 
 Navigate to each service repo and build images:
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd ../auth-service  docker build -t auth-service:1.0 .  cd ../product-service  docker build -t product-service:1.0 .  # Repeat for all services   `
+```bash
+   cd ../order-service  docker build -t order-service:1.0 . \
+   cd ../product-service  docker build -t product-service:1.0 .
+```
+---
 
 ### 5️⃣ Apply Kubernetes Manifests
 
 From the **infra** repo:
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   kubectl apply -f k8s/   `
+```bash
+   kubectl apply -f k8s/
+```
+---
 
 🐳 Docker Build Command
 -----------------------
 
-Example for **auth-service**:
+Example for **order-service**:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   docker build -t auth-service:1.0 ../auth-service   `
+```bash   
+   docker build -t order-service:1.0 ../order-service
+```
+---
 
 Repeat for each service, changing the tag and path accordingly.
 
@@ -64,9 +73,10 @@ Repeat for each service, changing the tag and path accordingly.
 
 Deploy all manifests:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   kubectl apply -f k8s/   `
-
-
+```bash   
+   kubectl apply -f k8s/
+```
+---
 
 ✅ Notes
 -------
